@@ -1,14 +1,9 @@
 #include<stdio.h>
+#include<algorithm>
+using namespace std;
 int ans=100000,n;
 int picked[20],sour[20],bitter[20];
 int abs(int x){
-if(x<0) x=-x;
-return x;
-}
-int mini(int x,int y){
-if(x<y) return x;
-else return y;
-}
 void pick(int i){
 if(i<=n){
     picked[i]=1;
@@ -16,7 +11,7 @@ if(i<=n){
     picked[i]=0;
     pick(i+1);
 }
-else{
+else{//i==n+1
     int counts=0,total_sour=1,total_bitter=0;
     for(int k=1;k<=n;k++){
         if(picked[k]==1){
@@ -26,7 +21,7 @@ else{
         }
     }
     if(counts!=0)
-        ans=mini(ans,abs(total_sour-total_bitter));
+        ans=min(ans,abs(total_sour-total_bitter));
 }
 }
 int main(){
