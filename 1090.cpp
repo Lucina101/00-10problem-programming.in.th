@@ -1,0 +1,29 @@
+#include<stdio.h>
+unsigned long long n,a,i,c[1000005],x,y,ans=0;
+int main()
+{
+    scanf("%llu",&n);
+    for(i=1;i<=n;i++)
+    {
+        scanf("%llu",&y);
+        c[y]++;
+    }
+    scanf("%llu",&a);
+    for(i=0;i<=a;i++)
+    {
+        if(c[i]!=0)
+        {
+            x=a-i;
+            if(c[x]!=0)
+            {
+                if(i!=x)
+                    ans+=c[x]*c[i];
+                else
+                    ans+=(c[i]*(c[i]-1))/2;
+                c[i]=0;
+                c[x]=0;
+            }
+        }
+    }
+    printf("%llu\n",ans);
+}
