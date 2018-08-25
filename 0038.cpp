@@ -2,7 +2,6 @@
 #include<string.h>
 #include<algorithm>
 using namespace std;
-
 char s[1005][100];
 int n,a,b;
 int isequal(int i){
@@ -42,6 +41,7 @@ int main(){
     scanf("%d",&n);
     for(int i=1;i<=n;i++)
         scanf("%s",s[i]);
+//too lazy to write qsort so I write bubble sort instead! haha
     for(int u=1;u<=n;u++)
     for(int v=u;v<=n;v++){
         compare(u,v);
