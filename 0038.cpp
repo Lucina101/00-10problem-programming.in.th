@@ -4,6 +4,7 @@
 using namespace std;
 char s[1005][100];
 int n,a,b;
+bool g;
 int isequal(int i){
     a=strlen(s[i]);
     b=strlen(s[i+1]);
@@ -16,8 +17,7 @@ int isequal(int i){
     return 1;
 }
 void compare(int i,int j){
-
-    bool g=true;//1 mean x is greater 2 mean y is greater 0 mean is equal
+     g=true;
     for(int k=0;(s[i][k]!='\0'&&s[j][k]!='\0'&&g);k++){
         if(s[i][k]>s[j][k]){
             swap(s[i],s[j]);
